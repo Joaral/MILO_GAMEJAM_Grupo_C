@@ -53,18 +53,6 @@ public class UI : MonoBehaviour
         {
             menu = 1;
         }
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            SceneManager.LoadScene(1);
-        }
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            SceneManager.LoadScene(2);
-        }
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            SceneManager.LoadScene(3);
-        }
         if (menu == 0)
         {
             //Menu home

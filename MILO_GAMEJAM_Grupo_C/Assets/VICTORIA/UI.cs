@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -20,8 +21,8 @@ public class UI : MonoBehaviour
     public float minPitch;
     public float maxPitch;
 
-    public float volumeMin;
-    public float volumeMax;
+    public AudioMixer masterMixer;
+    public Slider volumeSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,10 @@ public class UI : MonoBehaviour
             hudMenu.gameObject.SetActive(true);
             creditosMenu.gameObject.SetActive(false);
         }
+        float savedValue = PlayerPrefs.GetFloat("MasterVolume", 1f);
+
+        volumeSlider.value = savedValue;
+        SetMasterVolume(savedValue);
     }
 
     // Update is called once per frame
@@ -163,10 +168,10 @@ public class UI : MonoBehaviour
     void RandomPitch()
     {
         uiSound.pitch = 1.0f + Random.Range(minPitch, maxPitch);
-        uiSound.volume = 1.0f + Random.Range(volumeMin, volumeMax);
     }
-    public void Next()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+    public void SetMasterVolume(float value){
+        masterMixer.SetFloat("masterVolume", Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat("masterVolume",  Mathf.Log10(value) * 20);
     }
 }

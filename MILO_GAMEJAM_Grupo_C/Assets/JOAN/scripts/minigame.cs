@@ -15,6 +15,7 @@ public class minigame : MonoBehaviour
     [Header("Other Settings")]
     public InputSystem_Actions inputActions;
     public minigameUI ui;
+    public GameObject cartelGameOver;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class minigame : MonoBehaviour
         inputActions.Enable();
         StartMinigame();
         ui.isFirst = true;
+        cartelGameOver.SetActive(false);
     }
 
     void Update()
@@ -61,6 +63,22 @@ public class minigame : MonoBehaviour
         {
             StopCharging();
             ui.AnimateToLast();
+            if(chargeValue >= 2f)
+            {
+                Debug.Log("¡Ha crecido demasiado!");
+                cartelGameOver.SetActive(true);
+                Time.timeScale = 0f; // Detener el tiempo para mostrar el cartel
+            }
+            else if (chargeValue <= 1.7f)
+            {
+                Debug.Log("¡A penas ha crecido!");
+                cartelGameOver.SetActive(true);
+                Time.timeScale = 0f; // Detener el tiempo para mostrar el cartel
+            }
+            else
+            {
+                Debug.Log("¡La planta ha crecido saludable!");
+            }
         }
     }
 

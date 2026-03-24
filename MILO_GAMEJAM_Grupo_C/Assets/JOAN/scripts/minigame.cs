@@ -15,19 +15,22 @@ public class minigame : MonoBehaviour
     [Header("Other Settings")]
     public InputSystem_Actions inputActions;
     public minigameUI ui;
-    public GameObject cartelGameOver;
+
+    [Header("Time and Score Manager")]
+    public TimeAndScoreManager scoreManager;
 
     void Start()
     {
         inputActions = new InputSystem_Actions();
         inputActions.Enable();
         StartMinigame();
-        ui.isFirst = true;
-        cartelGameOver.SetActive(false);
+        ui.isFirst = true;        
     }
 
     void Update()
     {
+        if (!isPlaying) return;
+
         HandleInput();
     }
 
@@ -66,18 +69,19 @@ public class minigame : MonoBehaviour
             if(chargeValue >= 2f)
             {
                 Debug.Log("¡Ha crecido demasiado!");
-                cartelGameOver.SetActive(true);
-                Time.timeScale = 0f; // Detener el tiempo para mostrar el cartel
+
+                scoreManager.AddScore(-10);
             }
             else if (chargeValue <= 1.7f)
             {
                 Debug.Log("¡A penas ha crecido!");
-                cartelGameOver.SetActive(true);
-                Time.timeScale = 0f; // Detener el tiempo para mostrar el cartel
+
+                scoreManager.AddScore(-10);
             }
             else
             {
                 Debug.Log("¡La planta ha crecido saludable!");
+                scoreManager.AddScore(100);
             }
         }
     }

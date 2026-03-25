@@ -32,18 +32,15 @@ public class DoSound : MonoBehaviour
     public void RegarCrecerPlanta(){
 
         if(ui.menu == 3){
-            regar.time = 0f;
-            crecer.time = 0f;
-            regar.Play();
-            crecer.Play();
+            if(!regar.isPlaying) regar.Play();
+            if(!crecer.isPlaying) crecer.Play();
         }
 
     }
 
     public void StopCrecer(){
-        
-        regar.Stop();
-        crecer.Stop();
+        if(regar.isPlaying) regar.Stop();
+        if(crecer.isPlaying) crecer.Stop();
     }
 
 

@@ -48,7 +48,7 @@ public class UI : MonoBehaviour
             hudMenu.gameObject.SetActive(true);
             creditosMenu.gameObject.SetActive(false);
         }
-        float savedValue = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        float savedValue = PlayerPrefs.GetFloat("masterVolume", 1f);
 
         volumeSlider.value = savedValue;
         SetMasterVolume(savedValue);
@@ -178,7 +178,14 @@ public class UI : MonoBehaviour
     }
 
     public void SetMasterVolume(float value){
-        masterMixer.SetFloat("masterVolume", Mathf.Log10(value) * 20);
-        PlayerPrefs.SetFloat("masterVolume",  Mathf.Log10(value) * 20);
+        float rawValue = value;
+
+        value = Mathf.Clamp(value, 0.0001f, 1f);
+        value = Mathf.Pow(value, 2f);
+
+        float volume = Mathf.Log10(value) * 20f;
+
+        masterMixer.SetFloat("masterVolume", volume);
+        PlayerPrefs.SetFloat("MasterVolume", rawValue);
     }
 }

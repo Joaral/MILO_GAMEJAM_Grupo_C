@@ -9,6 +9,8 @@ public class DoSound : MonoBehaviour
 
     public AudioSource regar;
     public AudioSource crecer;
+
+    public UI ui;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,13 +30,18 @@ public class DoSound : MonoBehaviour
     }
 
     public void RegarCrecerPlanta(){
-        regar.time = 0f;
-        crecer.time = 0f;
-        regar.Play();
-        crecer.Play();
+
+        if(ui.menu == 3){
+            regar.time = 0f;
+            crecer.time = 0f;
+            regar.Play();
+            crecer.Play();
+        }
+
     }
 
     public void StopCrecer(){
+        
         regar.Stop();
         crecer.Stop();
     }

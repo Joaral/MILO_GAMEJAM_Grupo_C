@@ -24,6 +24,10 @@ public class TimeAndScoreManager : MonoBehaviour
     [Header("Backend")]
     public minigame minigame;
 
+    [Header("Sound")]
+
+    public DoSound sound;
+    public UI sfx;
     void Start()
     {
         currentTime = startTime;
@@ -77,22 +81,25 @@ public class TimeAndScoreManager : MonoBehaviour
         minigame.isPlaying = false;
         gameOverPanel.SetActive(true);
         gamePanel.SetActive(false);
-
+        sound.PlayLoseMusic();
         endText.text = score.ToString();
     }
 
     public void ResetGame()
     {
+        sfx.uiSound.Play();
         SceneManager.LoadScene("SampleScene");
     }
 
     public void MainMenu()
     {
+        sfx.uiSound.Play();
         SceneManager.LoadScene("Main_Menu");
     }
 
     public void ExitGame()
     {
+        sfx.uiSound.Play();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;   // Stop play mode in editor
 #else

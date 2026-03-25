@@ -55,6 +55,8 @@ public class minigame : MonoBehaviour
         Time.timeScale = 1;
 
         perfectScale = maxScale * 0.675f;
+
+
     }
 
     void Update()

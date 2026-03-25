@@ -24,6 +24,9 @@ public class UI : MonoBehaviour
     public AudioMixer masterMixer;
     public Slider volumeSlider;
 
+    [SerializeField] private Texture2D cursorTexture;
+    [SerializeField] private Vector2 cursorHotspot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +70,7 @@ public class UI : MonoBehaviour
             hudMenu.gameObject.SetActive(false);
             creditosMenu.gameObject.SetActive(false);
             Time.timeScale = 0;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
         else if (menu == 1)
         {
@@ -77,6 +81,7 @@ public class UI : MonoBehaviour
             hudMenu.gameObject.SetActive(false);
             creditosMenu.gameObject.SetActive(false);
             Time.timeScale = 0;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
         else if (menu == 2)
         {
@@ -87,6 +92,7 @@ public class UI : MonoBehaviour
             hudMenu.gameObject.SetActive(false);
             creditosMenu.gameObject.SetActive(false);
             Time.timeScale = 0;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
         else if (menu == 3)
         {
@@ -97,6 +103,7 @@ public class UI : MonoBehaviour
             hudMenu.gameObject.SetActive(true);
             creditosMenu.gameObject.SetActive(false);
             Time.timeScale = 1;
+            Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
         }
         else if (menu == 4)
         {

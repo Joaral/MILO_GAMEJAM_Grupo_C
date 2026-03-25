@@ -1192,6 +1192,8 @@ MonoBehaviour:
   maxPitch: 0.3
   masterMixer: {fileID: 24100000, guid: 8d9d4c4ecca61d343bd40f6ec5aba33c, type: 2}
   volumeSlider: {fileID: 9097598753855821143}
+  cursorTexture: {fileID: 2800000, guid: 1d830a53b9d7cc6429adddf8164f864b, type: 3}
+  cursorHotspot: {x: 0, y: 0}
 --- !u!82 &653908530
 AudioSource:
   m_ObjectHideFlags: 0

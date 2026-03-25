@@ -37,6 +37,9 @@ public class minigame : MonoBehaviour
 
     private int _currentIndex = -1;
 
+    [Header("Sound")]
+    public DoSound sound;
+
     void Start()
     {
         inputActions = new InputSystem_Actions();
@@ -80,6 +83,7 @@ public class minigame : MonoBehaviour
 
         if (interact.WasPressedThisFrame())
         {
+            sound.RegarCrecerPlanta();
             PickRandomPlantAndShowSilueta(forceDifferentThanCurrent: true);
 
             if (ui.isFirst)
@@ -99,6 +103,8 @@ public class minigame : MonoBehaviour
         {
             StopCharging();
             ui.AnimateToLast();
+
+            sound.StopCrecer();
 
             if (chargeValue >= maxScale * 0.85)
             {

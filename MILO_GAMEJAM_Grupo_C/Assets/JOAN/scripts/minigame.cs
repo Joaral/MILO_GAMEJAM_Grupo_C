@@ -18,6 +18,9 @@ public class minigame : MonoBehaviour
 
     public ParticleSystem stars;
     public ParticleSystem water;
+    public ParticleSystem flowers;
+
+    public MiloManager miloManager;
 
     [Header("Other Settings")]
     public InputSystem_Actions inputActions;
@@ -88,6 +91,8 @@ public class minigame : MonoBehaviour
             sound.RegarCrecerPlanta();
             PickRandomPlantAndShowSilueta(forceDifferentThanCurrent: true);
 
+            miloManager.Concentrated();
+
             if (ui.isFirst)
                 ui.isFirst = false;
 
@@ -108,20 +113,26 @@ public class minigame : MonoBehaviour
 
             sound.StopCrecer();
 
+            miloManager.Idle();
+
             if (chargeValue >= maxScale * 0.85)
             {
                 Debug.Log("¡Ha crecido demasiado!");
                 scoreManager.AddScore(-10);
+                miloManager.Sad();
             }
             else if (chargeValue <= maxScale * 0.50)
             {
                 Debug.Log("¡Apenas ha crecido!");
                 scoreManager.AddScore(-10);
+                miloManager.Sad();
             }
             else
             {
                 Debug.Log("¡La planta ha crecido saludable!");
                 stars.Play();
+                flowers.Play();
+                miloManager.Happy();
                 scoreManager.AddScore(100);
             }
         }

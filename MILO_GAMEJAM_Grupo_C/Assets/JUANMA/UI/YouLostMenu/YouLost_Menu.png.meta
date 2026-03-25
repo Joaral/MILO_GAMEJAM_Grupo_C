@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 36ebae0c1b5b2a94b9da5d5f87cbbe39
+guid: 355a62f23d1c6144f915943badb1019a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2231283598793918594
-    second: MMB_Retry_Pressed_0
+      213: -4380882864762805236
+    second: YouLost_Menu_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MMB_Retry_Pressed_0
+      name: YouLost_Menu_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 12
         y: 17
-        width: 1382
-        height: 1381
+        width: 2032
+        height: 2031
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e77bbb48363e801e0800000000000000
-      internalID: -2231283598793918594
+      spriteID: c04a733de3af333c0800000000000000
+      internalID: -4380882864762805236
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MMB_Retry_Pressed_0: -2231283598793918594
+      YouLost_Menu_0: -4380882864762805236
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

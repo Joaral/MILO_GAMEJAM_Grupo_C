@@ -66,12 +66,12 @@ public class TimeAndScoreManager : MonoBehaviour
     {
         if (timeText != null)
         {
-            timeText.text = currentTime.ToString("F2");
+            timeText.text = currentTime.ToString("N0");
         }
 
         if (scoreText != null)
         {
-            scoreText.text = "SCORE: " + score.ToString();
+            scoreText.text = "SCORE       " + score.ToString();
         }
     }
 
@@ -91,7 +91,7 @@ public class TimeAndScoreManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         gamePanel.SetActive(false);
 
-        endText.text = "FINAL SCORE: " + score.ToString();
+        endText.text = score.ToString();
     }
 
     public void ResetGame()

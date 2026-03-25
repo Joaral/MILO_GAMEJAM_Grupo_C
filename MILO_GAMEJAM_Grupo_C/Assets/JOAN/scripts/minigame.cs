@@ -24,7 +24,8 @@ public class minigame : MonoBehaviour
         inputActions = new InputSystem_Actions();
         inputActions.Enable();
         StartMinigame();
-        ui.isFirst = true;        
+        ui.isFirst = true;
+        Time.timeScale = 1;
     }
 
     void Update()

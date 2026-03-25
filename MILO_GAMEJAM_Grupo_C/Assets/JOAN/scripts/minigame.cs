@@ -1,5 +1,7 @@
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class minigame : MonoBehaviour
 {
@@ -19,10 +21,25 @@ public class minigame : MonoBehaviour
     [Header("Time and Score Manager")]
     public TimeAndScoreManager scoreManager;
 
+    [Header("UI Sprite Randomizer (Canvas)")]
+    public Image targetPlantaImage;
+    public Image targetSiluetaImage;
+    public List<Sprite> spritesPlantas = new();
+    public List<Sprite> spritesSiluetas = new();
+    public bool setNativeSize = false;
+
+    private int _currentIndex = -1;
+
     void Start()
     {
         inputActions = new InputSystem_Actions();
         inputActions.Enable();
+
+        if (targetPlantaImage == null)
+            targetPlantaImage = GetComponent<Image>();
+
+        PickRandomPlantAndShowSilueta(forceDifferentThanCurrent: false);
+
         StartMinigame();
         ui.isFirst = true;
         Time.timeScale = 1;
@@ -31,7 +48,6 @@ public class minigame : MonoBehaviour
     void Update()
     {
         if (!isPlaying) return;
-
         HandleInput();
     }
 
@@ -48,12 +64,13 @@ public class minigame : MonoBehaviour
     {
         var interact = inputActions.Player.Attack;
 
-       if (interact.WasPressedThisFrame())
+        if (interact.WasPressedThisFrame())
         {
+            PickRandomPlantAndShowSilueta(forceDifferentThanCurrent: true);
+
             if (ui.isFirst)
-            {
                 ui.isFirst = false;
-            }
+
             chargeValue = 0f;
             isCharging = true;
         }
@@ -63,25 +80,25 @@ public class minigame : MonoBehaviour
             isCharging = true;
             ChargeFlower();
         }
+
         if (interact.WasReleasedThisFrame())
         {
             StopCharging();
             ui.AnimateToLast();
-            if(chargeValue >= 2f)
-            {
-                Debug.Log("¡Ha crecido demasiado!");
 
+            if (chargeValue >= 2f)
+            {
+                Debug.Log("Â¡Ha crecido demasiado!");
                 scoreManager.AddScore(-10);
             }
             else if (chargeValue <= 1.7f)
             {
-                Debug.Log("¡A penas ha crecido!");
-
+                Debug.Log("Â¡Apenas ha crecido!");
                 scoreManager.AddScore(-10);
             }
             else
             {
-                Debug.Log("¡La planta ha crecido saludable!");
+                Debug.Log("Â¡La planta ha crecido saludable!");
                 scoreManager.AddScore(100);
             }
         }
@@ -99,13 +116,52 @@ public class minigame : MonoBehaviour
         Debug.Log("Carga detenida en: " + chargeValue);
     }
 
-    public bool IsPlaying()
+    public bool IsPlaying() => isPlaying;
+    public float GetChargeValue() => chargeValue;
+
+    private void PickRandomPlantAndShowSilueta(bool forceDifferentThanCurrent)
     {
-        return isPlaying;
+        if (spritesPlantas == null || spritesPlantas.Count == 0) return;
+        if (spritesSiluetas == null || spritesSiluetas.Count == 0) return;
+
+        int maxIndex = Mathf.Min(spritesPlantas.Count, spritesSiluetas.Count) - 1;
+        if (maxIndex < 0) return;
+
+        int newIndex = _currentIndex;
+
+        if (maxIndex == 0)
+        {
+            newIndex = 0;
+        }
+        else if (forceDifferentThanCurrent)
+        {
+            int safety = 0;
+            while (newIndex == _currentIndex && safety < 50)
+            {
+                newIndex = Random.Range(0, maxIndex + 1);
+                safety++;
+            }
+        }
+        else
+        {
+            newIndex = Random.Range(0, maxIndex + 1);
+        }
+
+        _currentIndex = newIndex;
+
+        ApplyToImage(targetSiluetaImage, spritesSiluetas[_currentIndex]);
+
+        ApplyToImage(targetPlantaImage, spritesPlantas[_currentIndex]);
     }
 
-    public float GetChargeValue()
+    private void ApplyToImage(Image img, Sprite sprite)
     {
-        return chargeValue;
+        if (img == null) return;
+
+        img.sprite = sprite;
+        img.preserveAspect = true;
+
+        if (setNativeSize)
+            img.SetNativeSize();
     }
 }

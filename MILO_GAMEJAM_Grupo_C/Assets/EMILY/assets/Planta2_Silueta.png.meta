@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: ce8c29d8faf72ec45aad4252fec7a769
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1909014087081413114
+    second: Planta2_Silueta_0
+  - first:
+      213: 4443939187145011410
+    second: Planta2_Silueta_1
+  - first:
+      213: -7040511975734075345
+    second: Planta2_Silueta_2
+  - first:
+      213: -6991201416217294061
+    second: Planta2_Silueta_3
+  - first:
+      213: 7521920733751415382
+    second: Planta2_Silueta_4
+  - first:
+      213: -2037907261274917809
+    second: Planta2_Silueta_5
+  - first:
+      213: 6384619733212433575
+    second: Planta2_Silueta_6
+  - first:
+      213: -3928174162585827631
+    second: Planta2_Silueta_7
+  - first:
+      213: -1198953931986412798
+    second: Planta2_Silueta_8
+  - first:
+      213: 3582469604628323425
+    second: Planta2_Silueta_9
+  - first:
+      213: 8782513437843908087
+    second: Planta2_Silueta_10
+  - first:
+      213: -2972892795411890664
+    second: Planta2_Silueta_11
+  - first:
+      213: 7610443083760589000
+    second: Planta2_Silueta_12
+  - first:
+      213: -2560038637027276886
+    second: Planta2_Silueta_13
+  - first:
+      213: -5718760934821619828
+    second: Planta2_Silueta_14
+  - first:
+      213: 6053949573317512781
+    second: Planta2_Silueta_15
+  - first:
+      213: -8778783631979750200
+    second: Planta2_Silueta_16
+  - first:
+      213: 4447599110999983222
+    second: Planta2_Silueta_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Planta2_Silueta_0
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 901
+        width: 74
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af944b3a23e2e7a10800000000000000
+      internalID: 1909014087081413114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_1
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 865
+        width: 55
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0773d452b0cad30800000000000000
+      internalID: 4443939187145011410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_2
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 912
+        width: 76
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20ac7909a31b4e90800000000000000
+      internalID: -7040511975734075345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_3
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 827
+        width: 45
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b09295a534afe90800000000000000
+      internalID: -6991201416217294061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_4
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 844
+        width: 77
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65216e3fd0b336860800000000000000
+      internalID: 7521920733751415382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_5
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 802
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f44f486a426e7b3e0800000000000000
+      internalID: -2037907261274917809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_6
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 737
+        width: 75
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac8318f1d9ba9850800000000000000
+      internalID: 6384619733212433575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_7
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 648
+        width: 53
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6443759625c79c0800000000000000
+      internalID: -3928174162585827631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_8
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 682
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b54ed40c57c5fe0800000000000000
+      internalID: -1198953931986412798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_9
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 604
+        width: 59
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c518aef1d77b130800000000000000
+      internalID: 3582469604628323425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_10
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 527
+        width: 35
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f5e7c1a071c1e970800000000000000
+      internalID: 8782513437843908087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_11
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 496
+        width: 41
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ef72ee0c92eb6d0800000000000000
+      internalID: -2972892795411890664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_12
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 457
+        width: 46
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c8d0eea9a9bd9960800000000000000
+      internalID: 7610443083760589000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_13
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 436
+        width: 64
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa7c6bc5c6ae87cd0800000000000000
+      internalID: -2560038637027276886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_14
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 349
+        width: 30
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c879394aa31e2a0b0800000000000000
+      internalID: -5718760934821619828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_15
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 366
+        width: 45
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ec7bdcf03f30450800000000000000
+      internalID: 6053949573317512781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_16
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 226
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc55d77cce7b2680800000000000000
+      internalID: -8778783631979750200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta2_Silueta_17
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 260
+        width: 19
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6744f7ab3db09bd30800000000000000
+      internalID: 4447599110999983222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Planta2_Silueta_0: 1909014087081413114
+      Planta2_Silueta_1: 4443939187145011410
+      Planta2_Silueta_10: 8782513437843908087
+      Planta2_Silueta_11: -2972892795411890664
+      Planta2_Silueta_12: 7610443083760589000
+      Planta2_Silueta_13: -2560038637027276886
+      Planta2_Silueta_14: -5718760934821619828
+      Planta2_Silueta_15: 6053949573317512781
+      Planta2_Silueta_16: -8778783631979750200
+      Planta2_Silueta_17: 4447599110999983222
+      Planta2_Silueta_2: -7040511975734075345
+      Planta2_Silueta_3: -6991201416217294061
+      Planta2_Silueta_4: 7521920733751415382
+      Planta2_Silueta_5: -2037907261274917809
+      Planta2_Silueta_6: 6384619733212433575
+      Planta2_Silueta_7: -3928174162585827631
+      Planta2_Silueta_8: -1198953931986412798
+      Planta2_Silueta_9: 3582469604628323425
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

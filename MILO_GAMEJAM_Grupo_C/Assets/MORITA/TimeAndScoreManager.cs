@@ -24,19 +24,6 @@ public class TimeAndScoreManager : MonoBehaviour
     [Header("Backend")]
     public minigame minigame;
 
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     void Start()
     {
         currentTime = startTime;
@@ -96,7 +83,7 @@ public class TimeAndScoreManager : MonoBehaviour
 
     public void ResetGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void MainMenu()

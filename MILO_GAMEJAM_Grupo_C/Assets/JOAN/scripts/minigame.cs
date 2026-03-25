@@ -28,6 +28,8 @@ public class minigame : MonoBehaviour
     public List<Sprite> spritesSiluetas = new();
     public bool setNativeSize = false;
 
+    public float perfectScale;
+
     private int _currentIndex = -1;
 
     void Start()
@@ -43,6 +45,8 @@ public class minigame : MonoBehaviour
         StartMinigame();
         ui.isFirst = true;
         Time.timeScale = 1;
+
+        perfectScale = maxScale * 0.675f;
     }
 
     void Update()
@@ -86,12 +90,12 @@ public class minigame : MonoBehaviour
             StopCharging();
             ui.AnimateToLast();
 
-            if (chargeValue >= 2f)
+            if (chargeValue >= maxScale * 0.85)
             {
                 Debug.Log("¡Ha crecido demasiado!");
                 scoreManager.AddScore(-10);
             }
-            else if (chargeValue <= 1.7f)
+            else if (chargeValue <= maxScale * 0.50)
             {
                 Debug.Log("¡Apenas ha crecido!");
                 scoreManager.AddScore(-10);
@@ -152,6 +156,21 @@ public class minigame : MonoBehaviour
         ApplyToImage(targetSiluetaImage, spritesSiluetas[_currentIndex]);
 
         ApplyToImage(targetPlantaImage, spritesPlantas[_currentIndex]);
+
+        //Escalar la silueta al punto medio del rango bueno
+        if (ui != null && targetSiluetaImage != null)
+        {
+            Vector3 baseScale = ui.GetInitialScale();
+
+            float perfectScale = maxScale * 0.675f; // punto medio del rango bueno
+
+            targetSiluetaImage.transform.localScale = baseScale * perfectScale;
+
+            //opcional: hacerla transparente
+            Color c = targetSiluetaImage.color;
+            c.a = 0.4f;
+            targetSiluetaImage.color = c;
+        }
     }
 
     private void ApplyToImage(Image img, Sprite sprite)

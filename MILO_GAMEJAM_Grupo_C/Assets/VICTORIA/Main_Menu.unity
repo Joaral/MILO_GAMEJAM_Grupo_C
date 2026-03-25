@@ -1376,7 +1376,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 8d9d4c4ecca61d343bd40f6ec5aba33c, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f2ffc095e7a4c9d4382438c17741eac9, type: 3}
+  m_Resource: {fileID: 8300000, guid: 68643cb5443a9cd4597a11f188fe73e3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4413,8 +4413,6 @@ MonoBehaviour:
   uiSound: {fileID: 925574753}
   minPitch: -0.3
   maxPitch: 0.3
-  volumeMin: 0
-  volumeMax: 0
   masterMixer: {fileID: 24100000, guid: 8d9d4c4ecca61d343bd40f6ec5aba33c, type: 2}
   volumeSlider: {fileID: 786738444}
 --- !u!1660057539 &9223372036854775807

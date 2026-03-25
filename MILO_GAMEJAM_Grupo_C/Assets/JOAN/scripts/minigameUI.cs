@@ -11,13 +11,18 @@ public class minigameUI : MonoBehaviour
     public Image lastObject;
     public GameObject minigamePanel;
 
+    private Vector3 originalPosition;
+
     public bool isFirst;
+
+    private bool isAnimating = false;
 
     private Vector3 initialScale;
 
     void Start()
     {
         initialScale = ObjectScale.transform.localScale;
+        originalPosition = ObjectScale.rectTransform.position;
     }
 
     void Update()
@@ -52,16 +57,20 @@ public class minigameUI : MonoBehaviour
     }
     public void AnimateToLast()
     {
+        if (isAnimating) return;
+
         StopAllCoroutines();
         StartCoroutine(MoveToLast());
     }
 
     IEnumerator MoveToLast()
     {
+        isAnimating = true;
+
         RectTransform current = ObjectScale.rectTransform;
         RectTransform target = lastObject.rectTransform;
 
-        Vector3 startPos = current.position;
+        Vector3 startPos = originalPosition;
         Vector3 endPos = target.position;
 
         Vector3 startScale = current.localScale;
@@ -95,6 +104,13 @@ public class minigameUI : MonoBehaviour
         current.localScale = Vector3.zero;
 
         // IMPORTANTE: devolver el actual a su sitio original
-        current.position = startPos;
+        current.position = originalPosition;
+
+        isAnimating = false;
+    }
+
+    public Vector3 GetInitialScale()
+    {
+        return initialScale;
     }
 }

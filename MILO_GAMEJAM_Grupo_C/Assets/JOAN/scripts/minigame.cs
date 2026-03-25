@@ -1,9 +1,13 @@
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class minigame : MonoBehaviour
 {
     [Header("Minigame Settings")]
+    public Camera cam;
+
     public float chargeSpeed = 0.6f;
     public float chargeValue = 0f;
 
@@ -12,25 +16,55 @@ public class minigame : MonoBehaviour
     public bool isPlaying = false;
     public bool isCharging = false;
 
+    public ParticleSystem stars;
+    public ParticleSystem water;
+
     [Header("Other Settings")]
     public InputSystem_Actions inputActions;
     public minigameUI ui;
-    public GameObject cartelGameOver;
+
+    [Header("Time and Score Manager")]
+    public TimeAndScoreManager scoreManager;
+
+    [Header("UI Sprite Randomizer (Canvas)")]
+    public Image targetPlantaImage;
+    public Image targetSiluetaImage;
+    public List<Sprite> spritesPlantas = new();
+    public List<Sprite> spritesSiluetas = new();
+    public bool setNativeSize = false;
+
+    public float perfectScale;
+
+    private int _currentIndex = -1;
 
     void Start()
     {
         inputActions = new InputSystem_Actions();
         inputActions.Enable();
+
+        if (targetPlantaImage == null)
+            targetPlantaImage = GetComponent<Image>();
+
+        PickRandomPlantAndShowSilueta(forceDifferentThanCurrent: false);
+
         StartMinigame();
         ui.isFirst = true;
-        cartelGameOver.SetActive(false);
+        Time.timeScale = 1;
+
+        perfectScale = maxScale * 0.675f;
     }
 
     void Update()
     {
-        HandleInput();
-    }
+        if (!isPlaying) return;
 
+        HandleInput();
+
+        if (isCharging)
+        {
+            FollowCursorAndPlayWater();
+        }
+    }
     void StartMinigame()
     {
         isPlaying = true;
@@ -44,12 +78,13 @@ public class minigame : MonoBehaviour
     {
         var interact = inputActions.Player.Attack;
 
-       if (interact.WasPressedThisFrame())
+        if (interact.WasPressedThisFrame())
         {
+            PickRandomPlantAndShowSilueta(forceDifferentThanCurrent: true);
+
             if (ui.isFirst)
-            {
                 ui.isFirst = false;
-            }
+
             chargeValue = 0f;
             isCharging = true;
         }
@@ -59,25 +94,27 @@ public class minigame : MonoBehaviour
             isCharging = true;
             ChargeFlower();
         }
+
         if (interact.WasReleasedThisFrame())
         {
             StopCharging();
             ui.AnimateToLast();
-            if(chargeValue >= 2f)
+
+            if (chargeValue >= maxScale * 0.85)
             {
-                Debug.Log("¡Ha crecido demasiado!");
-                cartelGameOver.SetActive(true);
-                Time.timeScale = 0f; // Detener el tiempo para mostrar el cartel
+                Debug.Log("Â¡Ha crecido demasiado!");
+                scoreManager.AddScore(-10);
             }
-            else if (chargeValue <= 1.7f)
+            else if (chargeValue <= maxScale * 0.50)
             {
-                Debug.Log("¡A penas ha crecido!");
-                cartelGameOver.SetActive(true);
-                Time.timeScale = 0f; // Detener el tiempo para mostrar el cartel
+                Debug.Log("Â¡Apenas ha crecido!");
+                scoreManager.AddScore(-10);
             }
             else
             {
-                Debug.Log("¡La planta ha crecido saludable!");
+                Debug.Log("Â¡La planta ha crecido saludable!");
+                stars.Play();
+                scoreManager.AddScore(100);
             }
         }
     }
@@ -91,16 +128,94 @@ public class minigame : MonoBehaviour
     void StopCharging()
     {
         isCharging = false;
+
+        if (water.isPlaying)
+        {
+            water.Stop();
+            water.gameObject.SetActive(false);
+        }
+
         Debug.Log("Carga detenida en: " + chargeValue);
     }
 
-    public bool IsPlaying()
+    public bool IsPlaying() => isPlaying;
+    public float GetChargeValue() => chargeValue;
+
+    private void PickRandomPlantAndShowSilueta(bool forceDifferentThanCurrent)
     {
-        return isPlaying;
+        if (spritesPlantas == null || spritesPlantas.Count == 0) return;
+        if (spritesSiluetas == null || spritesSiluetas.Count == 0) return;
+
+        int maxIndex = Mathf.Min(spritesPlantas.Count, spritesSiluetas.Count) - 1;
+        if (maxIndex < 0) return;
+
+        int newIndex = _currentIndex;
+
+        if (maxIndex == 0)
+        {
+            newIndex = 0;
+        }
+        else if (forceDifferentThanCurrent)
+        {
+            int safety = 0;
+            while (newIndex == _currentIndex && safety < 50)
+            {
+                newIndex = Random.Range(0, maxIndex + 1);
+                safety++;
+            }
+        }
+        else
+        {
+            newIndex = Random.Range(0, maxIndex + 1);
+        }
+
+        _currentIndex = newIndex;
+
+        ApplyToImage(targetSiluetaImage, spritesSiluetas[_currentIndex]);
+
+        ApplyToImage(targetPlantaImage, spritesPlantas[_currentIndex]);
+
+        //Escalar la silueta al punto medio del rango bueno
+        if (ui != null && targetSiluetaImage != null)
+        {
+            Vector3 baseScale = ui.GetInitialScale();
+
+            float perfectScale = maxScale * 0.675f; // punto medio del rango bueno
+
+            targetSiluetaImage.transform.localScale = baseScale * perfectScale;
+
+            //opcional: hacerla transparente
+            Color c = targetSiluetaImage.color;
+            c.a = 0.4f;
+            targetSiluetaImage.color = c;
+        }
     }
 
-    public float GetChargeValue()
+    private void ApplyToImage(Image img, Sprite sprite)
     {
-        return chargeValue;
+        if (img == null) return;
+
+        img.sprite = sprite;
+        img.preserveAspect = true;
+
+        if (setNativeSize)
+            img.SetNativeSize();
+    }
+
+
+    void FollowCursorAndPlayWater()
+    {
+        water.gameObject.SetActive(true);
+
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+
+        Vector3 worldPos = cam.ScreenToWorldPoint(
+            new Vector3(mousePos.x, mousePos.y, Mathf.Abs(cam.transform.position.z))
+        );
+
+        water.transform.position = new Vector3(worldPos.x, worldPos.y, 0f);
+
+        if (!water.isPlaying)
+            water.Play();
     }
 }

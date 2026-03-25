@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class minigame : MonoBehaviour
 {
     [Header("Minigame Settings")]
+    public Camera cam;
+
     public float chargeSpeed = 0.6f;
     public float chargeValue = 0f;
 
@@ -13,6 +15,9 @@ public class minigame : MonoBehaviour
 
     public bool isPlaying = false;
     public bool isCharging = false;
+
+    public ParticleSystem stars;
+    public ParticleSystem water;
 
     [Header("Other Settings")]
     public InputSystem_Actions inputActions;
@@ -52,9 +57,14 @@ public class minigame : MonoBehaviour
     void Update()
     {
         if (!isPlaying) return;
-        HandleInput();
-    }
 
+        HandleInput();
+
+        if (isCharging)
+        {
+            FollowCursorAndPlayWater();
+        }
+    }
     void StartMinigame()
     {
         isPlaying = true;
@@ -103,6 +113,7 @@ public class minigame : MonoBehaviour
             else
             {
                 Debug.Log("¡La planta ha crecido saludable!");
+                stars.Play();
                 scoreManager.AddScore(100);
             }
         }
@@ -117,6 +128,13 @@ public class minigame : MonoBehaviour
     void StopCharging()
     {
         isCharging = false;
+
+        if (water.isPlaying)
+        {
+            water.Stop();
+            water.gameObject.SetActive(false);
+        }
+
         Debug.Log("Carga detenida en: " + chargeValue);
     }
 
@@ -182,5 +200,22 @@ public class minigame : MonoBehaviour
 
         if (setNativeSize)
             img.SetNativeSize();
+    }
+
+
+    void FollowCursorAndPlayWater()
+    {
+        water.gameObject.SetActive(true);
+
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+
+        Vector3 worldPos = cam.ScreenToWorldPoint(
+            new Vector3(mousePos.x, mousePos.y, Mathf.Abs(cam.transform.position.z))
+        );
+
+        water.transform.position = new Vector3(worldPos.x, worldPos.y, 0f);
+
+        if (!water.isPlaying)
+            water.Play();
     }
 }
